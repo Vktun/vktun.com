@@ -53,10 +53,10 @@ namespace vktun.website
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "client-app";
-
+                spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
                 if (env.IsDevelopment())
                 {
-                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
+                  
                     spa.UseVueCli(npmScript: "serve",port:8080,regex: "Compiled");
                 }
             });
